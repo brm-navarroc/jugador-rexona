@@ -12,8 +12,12 @@ import { NavTopComponent } from './layout/nav-top/nav-top.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SliderHomeComponent } from './slider-home/slider-home.component';
 import { HowToPlayComponent } from './how-to-play/how-to-play.component';
+
+import { RequestService } from './request.service';
+
 import { RegisterComponent } from './register/register.component';
 import { VoteComponent } from './vote/vote.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,7 @@ import { VoteComponent } from './vote/vote.component';
     AngularFontAwesomeModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [RequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { RequestService } from '../request.service';
 
 declare var $:any;
 
@@ -12,11 +12,15 @@ declare var M:any;
 })
 export class SliderHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private requestService: RequestService) { 
+    
+  }
 
   ngOnInit() {
   	this.slider();
-  	this.autoplay();
+    this.autoplay();
+    console.log(this.requestService)
+    this.getData();
 }
   slider(){
   	
@@ -32,5 +36,20 @@ export class SliderHomeComponent implements OnInit {
       setInterval(this.autoplay, 5000);
 	  }
 
-  
+    getData(){
+      let resultData = null;
+      this.requestService.get('getPlayers',null,null).subscribe((res)=>{
+        resultData = res;
+
+        console.log(resultData)
+        // this.error = false;			
+      },(err)=>{
+        // this.error = true;			
+      },()=>{
+        // if(!this.error){
+        //   this.cities = ciudades;	
+        // }
+        console.log(resultData)
+      });
+    }
 }
