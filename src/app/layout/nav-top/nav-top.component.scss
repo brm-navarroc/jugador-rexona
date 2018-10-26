@@ -1,0 +1,30 @@
+nav{
+	background-color: #fff;
+	color: #000;
+	font-weight: bold;
+
+	ul{
+		margin-bottom: 0 !important;
+		a{
+			color: #000;
+			text-transform: uppercase;
+		}
+
+		li{
+			text-align: center;
+
+			&:last-child {
+
+				a{
+					color: #103073;
+				}
+			}
+		}
+
+	}
+}
+
+.brand-logo img{
+	width: 30%;
+	padding-top: 5%;
+}
