@@ -13,6 +13,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SliderHomeComponent } from './slider-home/slider-home.component';
 import { HowToPlayComponent } from './how-to-play/how-to-play.component';
 import { RegisterComponent } from './register/register.component';
+import { VoteComponent } from './vote/vote.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RegisterComponent } from './register/register.component';
     FooterComponent,
     SliderHomeComponent,
     HowToPlayComponent,
-    RegisterComponent
+    RegisterComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
