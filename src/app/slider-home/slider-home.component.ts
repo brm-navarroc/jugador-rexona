@@ -19,16 +19,17 @@ export class SliderHomeComponent implements OnInit {
   ngOnInit() {
   	this.slider();
     this.autoplay();
-    console.log(this.requestService)
     this.getData();
 }
+
   slider(){
-  	
 	$('.carousel.carousel-slider').carousel({
 	    fullWidth: true,
 	    indicators: true,
 	  })
   }
+
+
   autoplay() { 
 	  	//$('.carousel.carousel-slider')
 	  	//setInterval(this.autoplay, 5000);
