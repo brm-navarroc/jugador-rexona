@@ -1,0 +1,133 @@
+@import url('../app.component.scss');
+
+.content{
+	background-image: url("../../assets/img/fondo-internas.jpg");
+	backgorund-size: cover;
+	font-family: 'Poppins';
+	padding-top: 5em;
+	padding-bottom: 2em;
+
+	h1{
+	font-weight: bold;
+	margin: 0;
+	font-size: 3.5em;
+	display: inline-table;
+	text-transform: uppercase;
+	color: #fff;
+
+		&:before {
+			content: "";
+			width: 30%;
+			border-bottom: 0.1em solid #f00;
+			display: table-caption;
+			vertical-align: top;
+		}
+	}
+
+	p{
+		letter-spacing: 0.4em;
+		font-size: 1.1em;
+    	font-weight: 200;
+    	font-size: 0.9em;
+    	color: #fff;
+	}
+}
+
+.btn-twitter{
+    background: #00a7fd;
+    text-transform: capitalize;
+
+    i{
+    	padding-right: 10px;
+    	border-right: solid 1px #007bbd;
+    	color: #007bbd;
+    }
+}
+
+.input-field{
+
+	margin-bottom:0;
+	margin-top: 0.2em;
+
+	label{
+		margin-bottom: 1em;
+    	position: relative;
+    	font-size: 0.7em;
+    	color: white;
+    	left:0;
+	}
+
+	input{
+		background-color: #fff;
+		height:auto;
+		padding: 0.6em;
+		width: 95%;
+    	margin: auto;
+
+		&::placeholder{
+			color: #103073;
+			font-weight: 200;
+			padding:0;
+		}
+	}
+
+	select{
+		background-color: #fff;
+		height:2.5em;
+		padding: 0.6em;
+		border-radius: 0;
+		
+    }
+
+    p{
+    	label{
+
+    		span{
+    			font-size: 1em;
+    			letter-spacing: 0.2em;
+    		}
+    	}
+    }
+
+}
+
+.arrow-custom{
+	
+    	select{
+			
+		    background-color: transparent;
+		    background-image: none;
+		    appearance: none;
+	 		-moz-appearance: none;
+	 		-webkit-appearance: none;
+	 		background: url(../../assets/img/icons/arrow-down-icon.png) no-repeat 400px 15px #fff !important;
+    	}
+    }
+.date-costume{
+
+	input{
+		background-color: transparent;
+		    background-image: none;
+		    appearance: none;
+	 		-moz-appearance: none;
+	 		-webkit-appearance: none;
+	 		background: url(../../assets/img/icons/date-icon.png) no-repeat 390px 8px #fff !important;
+	}
+}
+
+.btn-slider{
+
+	padding: 0.3em 3em;
+    border: solid 1px #fff;
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: bold;
+    background-color: transparent;
+    height: auto;
+
+	&:hover{
+		background-color: rgba(255,255,255,0.4);
+		-webkiy-background-color: rgba(255,255,255,0.4);
+		-mz-background-color: rgba(255,255,255,0.4);
+	}
+}

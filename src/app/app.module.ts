@@ -12,6 +12,7 @@ import { NavTopComponent } from './layout/nav-top/nav-top.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { SliderHomeComponent } from './slider-home/slider-home.component';
 import { HowToPlayComponent } from './how-to-play/how-to-play.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HowToPlayComponent } from './how-to-play/how-to-play.component';
     NavTopComponent,
     FooterComponent,
     SliderHomeComponent,
-    HowToPlayComponent
+    HowToPlayComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
