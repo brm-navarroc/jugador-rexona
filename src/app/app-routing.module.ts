@@ -3,12 +3,17 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { SliderHomeComponent } from './slider-home/slider-home.component';
 import { HowToPlayComponent } from './how-to-play/how-to-play.component';
+import { RegisterComponent } from './register/register.component';
+import { VoteComponent } from './vote/vote.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/Inicio', pathMatch: 'full' },
-  	{ path: 'Inicio', component: SliderHomeComponent },
-  	{ path: 'Como-jugar', component: HowToPlayComponent }
+	{ path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  	{ path: 'inicio', component: SliderHomeComponent },
+  	{ path: 'como-jugar', component: HowToPlayComponent },
+  	{ path: 'registro', component: RegisterComponent },
+  	{ path: 'votar', component: VoteComponent }
 ];
+
 
 
 @NgModule({

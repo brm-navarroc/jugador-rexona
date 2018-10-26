@@ -13,6 +13,7 @@
 	font-size: 3.5em;
 	display: inline-table;
 	text-transform: uppercase;
+	color: #fff;
 
 		&:before {
 			content: "";
@@ -23,42 +24,35 @@
 		}
 	}
 
+	h5{
+		text-transform: unset;
+		color: #fff;
+		font-weight: 200;
+    	font-size: 1.5em;
+    	text-align:center;
+	}
+
 	p{
 		letter-spacing: 0.4em;
 		font-size: 1.1em;
     	font-weight: 200;
     	font-size: 0.9em;
-	}
-	.steps{
-
-		width:18%;
-		margin: auto 3.5%;
-		float: left;
-		border-bottom: solid 6px red;
-		min-height: 170px;
-		position: relative;
-
-		p{
-			font-size: 0.8em;
-		}
-
-		img{
-			position: absolute;
-    		right: 0;
-    		top: 10px;
-		}
+    	color: #fff;
 	}
 }
+.btn-slider{
 
-a.white-line{
-	color: #fff;
-	text-decoration: underline;
-	letter-spacing: 0.4em;
-		font-size: 1.1em;
-    	font-weight: 200;
-    	font-size: 0.9em;
+	padding: 0.3em 3em;
+    border: solid 1px #fff;
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: bold;
+    background-color: transparent;
+    height: auto;
 
 	&:hover{
-		text-decoration: none;
+		background-color: rgba(255,255,255,0.4);
+		-webkiy-background-color: rgba(255,255,255,0.4);
+		-mz-background-color: rgba(255,255,255,0.4);
 	}
 }
