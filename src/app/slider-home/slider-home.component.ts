@@ -38,7 +38,12 @@ export class SliderHomeComponent implements OnInit {
 	  }
 
     getData(){
-      let resultData = null;
+      this.request.get('getPlayers').subscribe((res)=>{
+        console.info("hi", res);
+        });
+
+
+      /*let resultData = null;
       this.requestService.get('getPlayers',null,null).subscribe((res)=>{
         resultData = res;
 
@@ -51,6 +56,6 @@ export class SliderHomeComponent implements OnInit {
         //   this.cities = ciudades;	
         // }
         console.log(resultData)
-      });
+      });*/
     }
 }

@@ -12,6 +12,8 @@ import { Observable } from 'rxjs/Observable';
 export class RequestService {
     constructor(private http: Http) {}
 
+    private domain = "https://fbapp.brm.com.co/Unilever/weekplayer/";
+
     public post(url:string, parameters:any, file:boolean = false, accion?:string, sucessCb?:any, errCb?:any) {
         let result = (accion) ? "?accion="+accion : "";
 		
@@ -41,15 +43,26 @@ export class RequestService {
     }
 
     public get(url:string, parameters?:any, accion?:any) {
-        let result = (accion) ? "?accion="+accion : "";		
-			
-		let fUrl = "https://fbapp.brm.com.co/Unilever/weekplayer/"+ url;	
+        let url += url;
+        let result = (accion) ? "?accion="+accion : "";
+
+            url = this.domain + url;
+            let headers:any;
+            let options:any;
+
+             console.warn(url);   
+        
+       return this.http.get(url, {params:parameters})
+               
+            .map(this.extractData)     
+
+        /*let result = (accion) ? "?accion="+accion : "";		
 		
 		let options:any;
         
         return this.http.get(fUrl, null)
             .map(this.extractData)            
-            .catch(this.handleError);
+            .catch(this.handleError);*/
     }
 
     private extractData(res: Response) {
