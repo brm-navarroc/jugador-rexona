@@ -1,4 +1,4 @@
-<section class="content">
+<section class="content" (window:resize)="onResize($event)">
 	<div class="container white-text">
 		<h1>MECáNICA</h1>
 		<p>
@@ -9,7 +9,7 @@
 			<div class="col s12 center-align" style="margin: 2em 0;">
 				<h4>Requisitos Básicos</h4>
 			</div>
-			<div class="row">
+			<div class="row" *ngIf="!mobil">
 				<div class="left-align steps">
 					<img src="../../assets/img/icons/twitter-icon.svg" alt="">
 					<h2>1.</h2>
@@ -30,6 +30,39 @@
 					<h2>4.</h2>
 					<p>Completa tus datos en esta plataforma y firma el disclaimer de responsabilidad.</p>
 				</div>
+			</div>
+			{{mobil}}
+			<div class="row" *ngIf="mobil">
+				<div class="carousel carousel-slider center" id="steps">
+				    <div class="carousel-item center" href="#one!">
+				      <div class="left-align steps">
+							<img src="../../assets/img/icons/twitter-icon.svg" alt="">
+							<h2>1.</h2>
+							<p>Votar usando el <b>#JugadorRexona</b> de los jugadores.</p>
+						</div>
+				    </div>
+				    <div class="carousel-item center" href="#two!">
+				      <div class="left-align steps">
+							<img src="../../assets/img/icons/18-icon.svg" alt="">
+							<h2>2.</h2>
+							<p>Ser mayor de edad.</p>
+						</div>
+				    </div>
+				    <div class="carousel-item center" href="#three!">
+				      <div class="left-align steps">
+							<img src="../../assets/img/icons/visa-icon.png" alt="">
+							<h2>3.</h2>
+							<p>Tener visa americana vigente.</p>
+						</div>
+				    </div>
+				    <div class="carousel-item center" href="#four!">
+				     <div class="left-align steps">
+					<img src="../../assets/img/icons/check-icon.svg" alt="">
+					<h2>4.</h2>
+					<p>Completa tus datos en esta plataforma y firma el disclaimer de responsabilidad.</p>
+				</div>
+				    </div>
+				  </div>
 			</div>
 		</div>
 		<div class="row center-align" style="margin-top: 3em;">
