@@ -14,7 +14,7 @@ export class VoteComponent implements OnInit {
   _semanalPlayersSearch:any;
 
   numbers:number[] = new Array(); 
-
+  max:any
   ngOnInit() {
   	this.weekPlayers();
   }
@@ -22,33 +22,31 @@ export class VoteComponent implements OnInit {
   weekPlayers(){
       this.request.get('getPlayersDb').subscribe((res)=>{
         this._semanalPlayers = res;
+        console.info(res);
           this.searchWeeklyPlayers();
        });
  	}
    
-
-   /* allPlayers(){
-      this.request.get('getPlayers').subscribe((res)=>{
-        //console.info("hi", res);
-        this._allPlayers = res;
-        this.weekPlayers();
-      });
-    }*/
-
     searchWeeklyPlayers(){  
         if ( this._semanalPlayers.length > 1 ){
           for (var i = 0; i <= this._semanalPlayers.length -1 ; i++) {
-            //console.info(this._semanalPlayers[i].votes);
             var nm = parseInt(this._semanalPlayers[i].votes);
              this.numbers.push( nm );
           }
-          //Math.max( this.numbers )
+          this.max = this.numbers.reduce(function(a, b) {
+              return Math.max(a, b);
+          });
+
         }
         
     }
 
-    calc(){
+    calc(nmbr:number){
+      console.warn(nmbr);
+      let x =  (nmbr*95) / this.max;
+      let t = 100 - x;
 
+      return {'height': x+'%', 'top': t+"%" };
     }
 
 }

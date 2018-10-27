@@ -4,31 +4,32 @@
 		<p >
 			Regístrate aquí y empieza a votar en Twitter para participar por un viaje doble a los estudios de ESPN.*
 		</p>
-		<div class="row">
-			<div class="col s12 center-align" style="margin: 2em auto;">
-				<a class="waves-effect waves-light btn btn-twitter"><i class="material-icons left"><fa name="twitter"></fa></i>Accede con Twitter</a>
+		<div  class="row">
+			<div *ngIf="!loggedTwitterUser" class="col s12 center-align" style="margin: 2em auto;">
+				<a class="waves-effect waves-light btn btn-twitter" (click)="twitterPopUpTs()"><i class="material-icons left"><fa name="twitter"></fa></i>Accede con Twitter</a>
 			</div>
 			<div class="container">
 				<div class="row">
-				    <form class="col s12">
+					
+				    <form *ngIf="loggedTwitterUser" class="col s12">
 				      <div class="row">
 				        <div class="input-field col s6">
 				        	<label>Nombres</label>
-				          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+				          <input placeholder="Nombres" id="first_name" type="text" class="validate">
 				          
 				        </div>
 				        <div class="input-field col s6">
 				        	<label>Apellidos</label>
-				          <input id="last_name" placeholder="Placeholder" type="text" class="validate">
+				          <input id="last_name" placeholder="Apellidos" type="text" class="validate">
 				          
 				        </div>
 				      </div>
 				      <div class="row">
 				        <div class="input-field col s6 arrow-custom">
 				        	<label>Paìs</label>
-						    <select name="" id="" class="browser-default">
-						    	<option value="">1</option>
-						    	<option value="">2</option>
+						    <select name="" id="" placeholder="Seleccione..." class="browser-default">
+						    	<option value="">El Salvador</option>
+						    	<option value="">Honduras</option>
 						    	<option value="">3</option>
 						    	<option value="">4</option>
 						    </select>
@@ -61,7 +62,7 @@
 				        </div>
 				        <div class="input-field col s6">
 				        	<label>Usuario Twitter</label>
-				          <input id="last_name" placeholder="Placeholder" type="text" class="validate">
+				          <input id="last_name" placeholder="{{twitterUser}}" type="text" class="validate">
 				          
 				        </div>
 				      </div>
