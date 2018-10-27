@@ -1,5 +1,6 @@
 @import url('../app.component.scss');
 
+
 .content{
 	background-image: url("../../assets/img/fondo-internas.jpg");
 	background-size: cover;
@@ -97,6 +98,19 @@
 
 }
 
+.undefinedPlayer{
+	opacity:.7;
+	p, h5{
+		color:gray !important;
+		border-bottom-color:gray !important;
+	}
+	.graph-3{
+	background-color:gray !important; 
+	background: linear-gradient(to bottom, gray, gray);
+	}
+
+}
+
 //////////////////
 
 
@@ -117,14 +131,25 @@ $color-letter: rgba(136,14,79 ,0.9);
   display: block;
   height: 400px;
   background: none;
+  overflow:hidden;
+	  .loading{
+	  	color:#fff;
+	  	text-align:center;
+	  	font-size:18px;
+	  	line-height: 200px;
+	  }
 }
+	span.nmbr{
+		color:#fff;
+		border:1px solid #fff;
+	}
 
 .graph-1, .graph-2, .graph-3{
 	width: 40%;
 	margin: auto 40% auto 20%;
 	
 	&:before{
-		content: "numero";
+		content: attr(data-content);
 	    position: absolute;
 	    top: -20px;
 	    width: 100%;
