@@ -21,6 +21,7 @@ import { VoteComponent } from './vote/vote.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
