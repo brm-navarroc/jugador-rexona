@@ -28,3 +28,33 @@ nav{
 	width: 30%;
 	padding-top: 5%;
 }
+
+
+@media only screen and (max-width: 991px) {
+   .container#top-menu{
+		margin:0px !important;
+		width:100%;
+	}
+	.mobil-options{
+		margin-right:40px;
+	}
+}
+@media only screen and (max-width: 600px) {
+	a.sidenav-trigger{
+	display:block !important;
+	}
+
+	.nav-wrapper.row{
+	    border: 1px solid magenta;
+    	display: flex;
+    	flex-direction: row-reverse;
+	}
+
+	.brand{
+		border: 1px solid red;
+	    width: 53px;
+	    display: inline-block;
+	    margin-right: auto;
+	    order: 2;
+	}
+}

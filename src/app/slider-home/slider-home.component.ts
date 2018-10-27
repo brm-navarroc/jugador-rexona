@@ -12,21 +12,27 @@ declare var M:any;
 })
 export class SliderHomeComponent implements OnInit {
 
+
   constructor() { 
+
     
   }
 
   ngOnInit() {
   	this.slider();
     this.autoplay();
+
+
 }
+
   slider(){
-  	
 	$('.carousel.carousel-slider').carousel({
 	    fullWidth: true,
 	    indicators: true,
 	  })
   }
+
+
   autoplay() { 
 	  	//$('.carousel.carousel-slider')
 	  	//setInterval(this.autoplay, 5000);
@@ -34,5 +40,4 @@ export class SliderHomeComponent implements OnInit {
       setInterval(this.autoplay, 5000);
 	  }
 
-    
 }
