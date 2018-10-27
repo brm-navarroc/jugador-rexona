@@ -1,62 +1,41 @@
 <section class="content">
 	<div class="container">
 		<div class="row">
-			<div class="col s6" style="padding-top: 10%;">
+			<div class="col s12 m6" style="padding-top: 10%;">
 				<h1>Vota Aquí</h1>
 				<p>Empieza a votar por tu #JugadorRexona y participa por un viaje para dos a los estudios de ESPN.</p>
 				<h5>Recuerda que tus votos cuentan solo si estás registrado.</h5>
 				<div class="col s12 center-align" style="margin-top: 2em;">
-				      		<a class="waves-effect waves-light btn btn-slider">Regístrate Aquí</a>
+				      		<a routerLink="/registro" class="waves-effect waves-light btn btn-slider">Regístrate Aquí</a>
 				      	</div>
 			</div>
-			<div class="col s6">
-				<!--
-				<div class="row box" style="border:1px solid red">
-					<div class="col s4 bar">
-						<div class="graph-1"></div>
+			<div class="col s12 m6">
+				 <div class="row box">
+				 	<div class="loading" *ngIf="!_semanalPlayers">
+						<div class="preloader-wrapper big active">
+						    <div class="spinner-layer spinner-red-only">
+						      <div class="circle-clipper left">
+						        <div class="circle"></div>
+						      </div><div class="gap-patch">
+						        <div class="circle"></div>
+						      </div><div class="circle-clipper right">
+						        <div class="circle"></div>
+						      </div>
+						    </div>
+						</div>
 					</div>
-					<div class="col s4 bar">
-						<div class="graph-2"></div>
+					<div class="col s4 bar" *ngFor="let player of _semanalPlayers;let i = index;" [class.undefinedPlayer]="player.votes == 0">
+						<div class="graph-3" [ngStyle]="calc(player.votes)" [attr.data-content]="player.votes"></div>
 					</div>
-					<div class="col s4 bar">
-						<div class="graph-3"></div>
-					</div>	 
-				 </div>-->
-
-				 <div class="row box" style="border:1px solid red">
-					<div class="col s4 bar">
-						<div class="graph-1"></div>
-					</div>
-					<div class="col s4 bar">
-						<div class="graph-2"></div>
-					</div>
-					<div class="col s4 bar">
-						<div class="graph-3"></div>
-					</div>	 
 				 </div>
 
 				 <div class="votes">
 				 	<div class="row">
-				 		<div class="col s4 center-align btn-pic">
-				 			<p>#jugadorrexonambappé</p>
+				 		<div class="col s4 center-align btn-pic" *ngFor="let player of _semanalPlayers" [class.undefinedPlayer]="player.votes == 0">
+				 			<p>{{player.hashtag}}</p>
 				 			<div class="col s12">
-				 				<a href=""><img src="../../assets/img/jugador1.png" alt="" class="circle responsive-img"><br>
+				 				<a href=""><img [src]="player.image" alt="" class="circle responsive-img"><br>
 				 					<h5>Vota</h5></a>
-				 			</div>
-
-				 		</div>
-				 		<div class="col s4 center-align btn-pic">
-				 			<p>#jugadorrexonamessi</p>
-				 			<div class="col s12">
-				 				<a href=""><img src="../../assets/img/jugador3.png" alt="" class="circle responsive-img"><br>
-				 				<h5>Vota</h5></a>
-				 			</div>
-				 		</div>
-				 		<div class="col s4 center-align btn-pic">
-				 			<p>#jugadorrexonaronaldo</p>
-				 			<div class="col s12">
-				 				<a href=""><img src="../../assets/img/jugador2.png" alt="" class="circle responsive-img"><br>
-				 				<h5>Vota</h5></a>
 				 			</div>
 				 		</div>
 				 	</div>

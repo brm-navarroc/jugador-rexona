@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var $:any
+
 @Component({
   selector: 'app-nav-top',
   templateUrl: './nav-top.component.html',
@@ -10,6 +12,16 @@ export class NavTopComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+  	this.MenuMobile();
   }
+
+  MenuMobile(){
+
+  	$('.sidenav').sidenav();
+
+  }
+
+  
 
 }

@@ -13,19 +13,20 @@
 					
 				    <form name="form-register"  #myForm="ngForm" *ngIf="loggedTwitterUser" class="col s12">
 				      <div class="row">
-				        <div class="input-field col s6">
+				        <div class="input-field col s12 m6">
 				        	<label>Nombres</label>
 				          <input name="first_name" [(ngModel)]="userDataModel.names" required placeholder="Nombres" id="first_name" type="text" class="validate" >
 				          
 				        </div>
-				        <div class="input-field col s6">
+				        <div class="input-field col s12 m6">
 				        	<label>Apellidos</label>
 				          <input name="lastNames" [(ngModel)]="userDataModel.lastNames" required id="last_name" placeholder="Apellidos" type="text" class="validate">
 				          
 				        </div>
 				      </div>
 				      <div class="row">
-				        <div class="input-field col s6 arrow-custom">
+
+				        <div class="input-field col s12 m6 arrow-custom">
 				        	<label>País</label>
 						    <select  name="country" [(ngModel)]="userDataModel.country" required id="form-country"  class="browser-default">
 										<option value="">Seleccione..</option>
@@ -34,27 +35,32 @@
 						    	<option value="Nicaragua">Nicaragua</option>
 									<option value="Costa Rica">Costa Rica</option>
 									<option value="Panamá">Panamá</option>
+
 						    </select>
 						  </div>
-				        <div class="input-field col s6">
+				        <div class="input-field col s12 m6">
 				        	<label>E-Mail</label>
 				          <input name="email" [(ngModel)]="userDataModel.email" required id="form-mail" placeholder="E-mail" type="text" class="validate"> 
 				        </div>
 				      </div>
 				      <div class="row">
-				        <div class="input-field col s6">
+
+				        <div class="input-field col s12 m6">
 				        	<label>Teléfono</label>
 				          <input name="phone" maxlength="12" [(ngModel)]="userDataModel.phone" required placeholder="Teléfono" id="form-phone" type="tel" class="validate">
+
+				       
+
 				          
 				        </div>
-				        <div class="input-field col s6 date-costume">
+				        <div class="input-field col s12 m6 date-costume">
 				        	<label>Fecha de Nacimiento</label>
 				          <input readonly name="birthdate" [(ngModel)]="userDataModel.birthdate" required id="form-birthdate" type="text" class="datepicker" placeholder="Fecha de Nacimiento">
 				          
 				        </div>
 				      </div>
 				      <div class="row">
-				        <div class="input-field col s6 arrow-custom">
+				        <div class="input-field col s12 m6 arrow-custom">
 				        	<label>Visa Americana Vigente</label>
 				          <select required name="visa" [(ngModel)]="userDataModel.visa" id="form-visa" class="browser-default">
 						      <option value="" disabled selected>Seleccione...</option>
@@ -62,7 +68,7 @@
 						      <option value="No">No</option>
 						    </select>
 				        </div>
-				        <div class="input-field col s6">
+				        <div class="input-field col s12 m6">
 				        	<label>Usuario Twitter</label>
 				          <input name="twitterUserName" [(ngModel)]="userDataModel.twitterUser" required id="form-twitter-user" placeholder="{{twitterUser}}" type="text" class="validate">
 				          

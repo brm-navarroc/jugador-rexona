@@ -1,17 +1,42 @@
+@import url('../../app.component.scss');
+
 nav{
 	background-color: #fff;
 	color: #000;
 	font-weight: bold;
 
-	ul{
-		margin-bottom: 0 !important;
-		a{
-			color: #000;
-			text-transform: uppercase;
+	.brand-logo{
+
+		text-align: right;
+		left: 0;
+
+		img{
+			width: 30%;
+    		margin-top: 5px;
 		}
 
+		@media screen and (min-width:1024px) {
+
+			position:relative;
+			text-align: left;
+
+			img{
+			width: 30%;
+    		margin-top: 8px;
+		}
+			
+		}
+	}
+
+	ul{
+		text-transform: uppercase;
+		font-weight: bold;
 		li{
 			text-align: center;
+
+			a{
+				color: #000;
+			}
 
 			&:last-child {
 
@@ -20,41 +45,37 @@ nav{
 				}
 			}
 		}
+	}
 
+	.container{
+
+		width: 100% !important;
+
+		@media screen and (min-width:1024px) {
+
+			width: 70% !important;
+			
+		}
+	}
+
+}
+
+.sidenav{
+
+	li{
+		border-bottom: solid 1px #ddd;
+	}
+
+	li:first-child{
+		background: #103073;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: bold;
+		text-align: center;
 	}
 }
 
-.brand-logo img{
-	width: 30%;
-	padding-top: 5%;
-}
 
 
-@media only screen and (max-width: 991px) {
-   .container#top-menu{
-		margin:0px !important;
-		width:100%;
-	}
-	.mobil-options{
-		margin-right:40px;
-	}
-}
-@media only screen and (max-width: 600px) {
-	a.sidenav-trigger{
-	display:block !important;
-	}
 
-	.nav-wrapper.row{
-	    border: 1px solid magenta;
-    	display: flex;
-    	flex-direction: row-reverse;
-	}
 
-	.brand{
-		border: 1px solid red;
-	    width: 53px;
-	    display: inline-block;
-	    margin-right: auto;
-	    order: 2;
-	}
-}

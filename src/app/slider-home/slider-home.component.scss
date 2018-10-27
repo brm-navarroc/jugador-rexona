@@ -1,8 +1,11 @@
 
 .content{
-	background-image: url("../../assets/img/fondo-estadio.jpg");
+	background-image: url("../../assets/img/fondo-mobile.jpg");
 	background-size: cover;
-	background-position: center; 
+
+	@media screen and (min-width: 1024px){
+		background-image: url("../../assets/img/fondo-estadio.jpg");
+	}
 
 	.slider-line{
 		margin-bottom: 0 !important;
