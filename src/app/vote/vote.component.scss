@@ -141,8 +141,8 @@ $color-letter: rgba(136,14,79 ,0.9);
   top: 70%;
   height: 30%;
   background: $graph-1; //30%
-	
-	animation: graph-1 1s 1;
+  transition: 1s all;
+	/*animation: graph-1 1s 1;*/
 	opacity: 0.9;
 }
 .graph-2{
@@ -156,8 +156,8 @@ $color-letter: rgba(136,14,79 ,0.9);
 }
 .graph-3{
 	position: absolute;
-  top: 0%;
-  height: 100%;
+  /*top: 0%;
+  height: 0%;*/
   background: $graph-3; //80%
 	
 	animation: graph-3 4s 1;
