@@ -1,11 +1,15 @@
 @import url('../app.component.scss');
 
 .content{
-	background-image: url("../../assets/img/fondo-internas.jpg");
+	background-image: url("../../assets/img/fondo-mobile.jpg");
 	backgorund-size: cover;
 	font-family: 'Poppins';
 	padding-top: 5em;
 	padding-bottom: 2em;
+
+	@media screen and (min-width: 1024px){
+		background-image: url("../../assets/img/fondo-internas.jpg");
+	}
 
 	h1{
 	font-weight: bold;
@@ -46,6 +50,13 @@
 			position: absolute;
     		right: 0;
     		top: 10px;
+    		width: 15%;
+
+    		@media screen and (min-width:1024px){
+				
+				width: 20%;
+
+    		}
 		}
 
 		@media screen and (min-width:1024px) {
@@ -54,19 +65,27 @@
 			margin: auto 3.5%;
 		}
 	}
+
+	.link-legal{
+
+		padding-top:0.5em;
+		text-align: center;
+
+		@media screen and (min-width:1024px) {
+			padding-top:2em;
+		}
+	}
 }
 
-.carousel .carousel-slider #steps{
-	height: 200px !important;
+.carousel.carousel-slider {
+	min-height: 250px !important;
 }
 
 .carousel.carousel-slider .carousel-item h2{
 	font-size: 3em;
     font-weight: bold;
-    line-height: 0.8em;
+    line-height: 1em;
 }
-
-
 
 a.white-line{
 	color: #fff;
@@ -78,5 +97,9 @@ a.white-line{
 
 	&:hover{
 		text-decoration: none;
+	}
+
+	@media screen and (min-width:1024px) {
+		
 	}
 }

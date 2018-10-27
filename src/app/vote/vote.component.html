@@ -1,20 +1,28 @@
 <section class="content">
 	<div class="container">
 		<div class="row">
-			<div class="col s6" style="padding-top: 10%;">
+			<div class="col s12 m6" style="padding-top: 10%;">
 				<h1>Vota Aquí</h1>
 				<p>Empieza a votar por tu #JugadorRexona y participa por un viaje para dos a los estudios de ESPN.</p>
 				<h5>Recuerda que tus votos cuentan solo si estás registrado.</h5>
 				<div class="col s12 center-align" style="margin-top: 2em;">
-				      		<a class="waves-effect waves-light btn btn-slider">Regístrate Aquí</a>
+				      		<a routerLink="/registro" class="waves-effect waves-light btn btn-slider">Regístrate Aquí</a>
 				      	</div>
 			</div>
-			<div class="col s6">
-				
-				
+			<div class="col s12 m6">
 				 <div class="row box">
 				 	<div class="loading" *ngIf="!_semanalPlayers">
-						Cargando...
+						<div class="preloader-wrapper big active">
+						    <div class="spinner-layer spinner-red-only">
+						      <div class="circle-clipper left">
+						        <div class="circle"></div>
+						      </div><div class="gap-patch">
+						        <div class="circle"></div>
+						      </div><div class="circle-clipper right">
+						        <div class="circle"></div>
+						      </div>
+						    </div>
+						</div>
 					</div>
 					<div class="col s4 bar" *ngFor="let player of _semanalPlayers;let i = index;" [class.undefinedPlayer]="player.votes == 0">
 						<div class="graph-3" [ngStyle]="calc(player.votes)" [attr.data-content]="player.votes"></div>
