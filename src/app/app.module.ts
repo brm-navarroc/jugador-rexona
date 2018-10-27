@@ -13,8 +13,6 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SliderHomeComponent } from './slider-home/slider-home.component';
 import { HowToPlayComponent } from './how-to-play/how-to-play.component';
 
-import { RequestService } from './request.service';
-
 import { RegisterComponent } from './register/register.component';
 import { VoteComponent } from './vote/vote.component';
 
@@ -36,7 +34,7 @@ import { VoteComponent } from './vote/vote.component';
     AngularFontAwesomeModule,
     AppRoutingModule
   ],
-  providers: [RequestService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
