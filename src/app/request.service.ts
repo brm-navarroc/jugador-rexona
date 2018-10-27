@@ -17,10 +17,10 @@ export class RequestService {
     constructor(private http: Http) {}
 
  
-   /* public post(url:string, parameters:any, file:boolean = false, accion?:string, sucessCb?:any, errCb?:any) {
+   public post(url:string, parameters:any, file:boolean = false, accion?:string, sucessCb?:any, errCb?:any) {
         let result = (accion) ? "?accion="+accion : "";
 		
-		url = "https://fbapp.brm.com.co/unilever/weekplayer/"+ url;
+		url = "https://fbapp.brm.com.co/Unilever/weekplayer/"+ url;
 		
         let headers:any;
         let param:any;
@@ -28,12 +28,12 @@ export class RequestService {
         if (file) {
             param = parameters;
         }else{
-            headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded' });
-            param = this.serialized(parameters);
+            headers = new Headers({'Content-Type': 'application/json' });
+            param = parameters;
             options = new RequestOptions({ headers: headers, method: "post" });
         }
         
-        return this.http.post(url, param, options)
+        return this.http.post(url,param,options)
             .map((res: Response) =>{
 				let body = res.json();
 				if(body.status_code==0){
@@ -43,7 +43,7 @@ export class RequestService {
                 return body || { };
             })
             .catch(this.handleError);
-    }*/
+    }
 
     public get(url:string, parameters?:any, accion?:any ) {
       let url_ = this.domain + url;

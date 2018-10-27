@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,8 @@ import { HowToPlayComponent } from './how-to-play/how-to-play.component';
 
 import { RegisterComponent } from './register/register.component';
 import { VoteComponent } from './vote/vote.component';
+
+import {RequestService} from './request.service';
 
 
 @NgModule({
@@ -32,9 +35,10 @@ import { VoteComponent } from './vote/vote.component';
     FormsModule,
     HttpModule,
     AngularFontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [RequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
