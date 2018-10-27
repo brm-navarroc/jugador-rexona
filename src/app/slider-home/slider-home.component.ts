@@ -12,14 +12,15 @@ declare var M:any;
 })
 export class SliderHomeComponent implements OnInit {
 
-  constructor(private requestService: RequestService) { 
+  constructor(private request: RequestService) { 
     
   }
 
   ngOnInit() {
   	this.slider();
     this.autoplay();
-    this.getData();
+    this.allPlayers();
+    this.weekPlayers();
 }
 
   slider(){
@@ -37,25 +38,16 @@ export class SliderHomeComponent implements OnInit {
       setInterval(this.autoplay, 5000);
 	  }
 
-    getData(){
+    weekPlayers(){
       this.request.get('getPlayers').subscribe((res)=>{
         console.info("hi", res);
         });
+      }
+   
 
-
-      /*let resultData = null;
-      this.requestService.get('getPlayers',null,null).subscribe((res)=>{
-        resultData = res;
-
-        console.log(resultData)
-        // this.error = false;			
-      },(err)=>{
-        // this.error = true;			
-      },()=>{
-        // if(!this.error){
-        //   this.cities = ciudades;	
-        // }
-        console.log(resultData)
-      });*/
+    allPlayers(){
+      this.request.get('getPlayers').subscribe((res)=>{
+        console.info("hi", res);
+        });
     }
 }

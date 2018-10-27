@@ -10,11 +10,14 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 
 export class RequestService {
-    constructor(private http: Http) {}
 
     private domain = "https://fbapp.brm.com.co/Unilever/weekplayer/";
 
-    public post(url:string, parameters:any, file:boolean = false, accion?:string, sucessCb?:any, errCb?:any) {
+
+    constructor(private http: Http) {}
+
+ 
+   /* public post(url:string, parameters:any, file:boolean = false, accion?:string, sucessCb?:any, errCb?:any) {
         let result = (accion) ? "?accion="+accion : "";
 		
 		url = "https://fbapp.brm.com.co/unilever/weekplayer/"+ url;
@@ -40,29 +43,23 @@ export class RequestService {
                 return body || { };
             })
             .catch(this.handleError);
-    }
+    }*/
 
-    public get(url:string, parameters?:any, accion?:any) {
-        let url += url;
-        let result = (accion) ? "?accion="+accion : "";
-
-            url = this.domain + url;
-            let headers:any;
+    public get(url:string, parameters?:any, accion?:any ) {
+      let url_ = this.domain + url;
+            let headers = new Headers({'Content-Type': 'application/json' });
             let options:any;
 
-             console.warn(url);   
+             console.warn(url_);   
         
-       return this.http.get(url, {params:parameters})
+       return this.http.get(url_)
                
             .map(this.extractData)     
 
         /*let result = (accion) ? "?accion="+accion : "";		
 		
-		let options:any;
+		let options:any;*/
         
-        return this.http.get(fUrl, null)
-            .map(this.extractData)            
-            .catch(this.handleError);*/
     }
 
     private extractData(res: Response) {
