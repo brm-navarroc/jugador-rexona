@@ -5,6 +5,7 @@
   },
   "apps": [
     {
+     "baseRef": "/Unilever/weekplayer/client/",
       "root": "src",
       "outDir": "dist",
       "assets": [

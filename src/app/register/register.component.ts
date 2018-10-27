@@ -23,13 +23,13 @@ export class RegisterComponent implements OnInit {
 
   userDataModel ={
 
-    names : "asd",
-    lastNames : "asdasd",
-    country : "asdasd",
-    email : "asdasd",
-    phone : "asdasd",
-    birthdate : "asdasd",
-    visa : "asdasd",
+    names : "",
+    lastNames : "",
+    country : null,
+    email : "",
+    phone : "",
+    birthdate : "",
+    visa : null,
     twitterUser : "",
     tyc: null
   }

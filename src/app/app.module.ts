@@ -18,7 +18,7 @@ import { HowToPlayComponent } from './how-to-play/how-to-play.component';
 import { RegisterComponent } from './register/register.component';
 import { VoteComponent } from './vote/vote.component';
 
-import {RequestService} from './request.service';
+
 
 
 @NgModule({
