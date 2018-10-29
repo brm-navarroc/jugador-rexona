@@ -20,7 +20,7 @@ export class SliderHomeComponent implements OnInit {
 
   ngOnInit() {
   	this.slider();
-    this.autoplay();
+    //SSSthis.autoplay();
 
 
 }
