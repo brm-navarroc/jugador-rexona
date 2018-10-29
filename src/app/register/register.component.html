@@ -15,12 +15,19 @@
 				      <div class="row">
 				        <div class="input-field col s12 m6">
 				        	<label>Nombres</label>
-				          <input name="first_name" [(ngModel)]="userDataModel.names" required placeholder="Nombres" id="first_name" type="text" class="validate" >
-				          
+				          <input name="first_name" [(ngModel)]="userDataModel.names" #names="ngModel" required placeholder="Nombres" id="first_name" type="text" class="validate" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
+				          <div *ngIf="names.errors &amp;&amp; (names.dirty || names.touched || formSubmitAttempt)">
+            <div style="color: white;"[hidden]="!names.hasError('required')">Debes completar este campo para continuar.</div>
+            <div style="color: white;"[hidden]="!names.hasError('pattern')">Sole se admiten letras</div>
+          </div> 
 				        </div>
 				        <div class="input-field col s12 m6">
 				        	<label>Apellidos</label>
-				          <input name="lastNames" [(ngModel)]="userDataModel.lastNames" required id="last_name" placeholder="Apellidos" type="text" class="validate">
+				          <input name="lastNames" [(ngModel)]="userDataModel.lastNames" #lastNames="ngModel" required id="last_name" placeholder="Apellidos" type="text" class="validate" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
+				          <div class="msn-place" *ngIf="lastNames.errors &amp;&amp; (lastNames.dirty || lastNames.touched || formSubmitAttempt)">
+            <div style="color: white;"[hidden]="!lastNames.hasError('required')">Debes completar este campo para continuar.</div>
+            <div style="color: white;"[hidden]="!lastNames.hasError('pattern')">Sole se admiten letras</div>
+          </div>
 				          
 				        </div>
 				      </div>
@@ -28,26 +35,37 @@
 
 				        <div class="input-field col s12 m6 arrow-custom">
 				        	<label>País</label>
-						    <select  name="country" [(ngModel)]="userDataModel.country" required id="form-country"  class="browser-default">
-										<option value="">Seleccione..</option>
-									<option value="El Salvador">El Salvador</option>
-						    	<option value="Honduras">Honduras</option>
-						    	<option value="Nicaragua">Nicaragua</option>
-									<option value="Costa Rica">Costa Rica</option>
-									<option value="Panamá">Panamá</option>
+						    <select  name="country" [(ngModel)]="userDataModel.country" #country="ngModel" required id="form-country"  class="browser-default">
+										<option value="" selected="selected">Seleccione..</option>
+									<option *ngFor="let countryData of countries; let countryKey = index" [value]="countryData">{{countryData}}</option>
+
+						    	
 
 						    </select>
+						    <div class="msn-place" *ngIf="country.errors &amp;&amp; (country.dirty || country.touched || formSubmitAttempt)">
+            <div style="color: white;"[hidden]="!country.hasError('required')">Debes completar este campo para continuar.</div>
+
+          </div>
 						  </div>
 				        <div class="input-field col s12 m6">
 				        	<label>E-Mail</label>
-				          <input name="email" [(ngModel)]="userDataModel.email" required id="form-mail" placeholder="E-mail" type="text" class="validate"> 
+				          <input name="email" [(ngModel)]="userDataModel.email" #email="ngModel" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" id="form-mail" placeholder="E-mail" type="text" class="validate">
+				          <div class="msn-place" *ngIf="email.errors &amp;&amp; (email.dirty || email.touched || formSubmitAttempt)">
+            <div style="color: white;"[hidden]="!email.hasError('required')">Debes completar este campo para continuar.</div>
+            <div style="color: white;"[hidden]="!email.hasError('pattern')">Formato de E-mail invalido</div>
+          </div>
+
 				        </div>
 				      </div>
 				      <div class="row">
 
 				        <div class="input-field col s12 m6">
 				        	<label>Teléfono</label>
-				          <input name="phone" maxlength="12" [(ngModel)]="userDataModel.phone" required placeholder="Teléfono" id="form-phone" type="tel" class="validate">
+				          <input name="phone" maxlength="12" pattern="^[0-9]*$" [(ngModel)]="userDataModel.phone" #phone="ngModel" required placeholder="Teléfono" id="form-phone" type="tel" class="validate">
+				          <div class="msn-place" *ngIf="phone.errors &amp;&amp; (phone.dirty || phone.touched || formSubmitAttempt)">
+            <div style="color: white;" [hidden]="!phone.hasError('required')">Debes completar este campo para continuar.</div>
+            <div style="color: white;" [hidden]="!phone.hasError('pattern')">Sole se admiten numeros</div>
+          </div>
 
 				       
 
@@ -55,33 +73,43 @@
 				        </div>
 				        <div class="input-field col s12 m6 date-costume">
 				        	<label>Fecha de Nacimiento</label>
-				          <input readonly name="birthdate" [(ngModel)]="userDataModel.birthdate" required id="form-birthdate" type="text" class="datepicker" placeholder="Fecha de Nacimiento">
-				          
+				          <input readonly name="birthdate" [(ngModel)]="userDataModel.birthdate" #birthdate="ngModel" required id="form-birthdate" type="text" class="datepicker" placeholder="Fecha de Nacimiento">
+				         
 				        </div>
 				      </div>
 				      <div class="row">
 				        <div class="input-field col s12 m6 arrow-custom">
 				        	<label>Visa Americana Vigente</label>
-				          <select required name="visa" [(ngModel)]="userDataModel.visa" id="form-visa" class="browser-default">
-						      <option value="" disabled selected>Seleccione...</option>
+				          <select required name="visa" [(ngModel)]="userDataModel.visa" #visa="ngModel" id="form-visa" class="browser-default">
+						      <option value="" selected="selected">Seleccione..</option>
 						      <option value="Sí">Sí</option>
 						      <option value="No">No</option>
 						    </select>
+						<div class="msn-place" *ngIf="visa.errors &amp;&amp; (visa.dirty || visa.touched || formSubmitAttempt)">
+            <div style="color: white;"[hidden]="!visa.hasError('required')">Debes completar este campo para continuar.</div>
+          </div> 
 				        </div>
 				        <div class="input-field col s12 m6">
 				        	<label>Usuario Twitter</label>
-				          <input name="twitterUserName" [(ngModel)]="userDataModel.twitterUser" required id="form-twitter-user" placeholder="{{twitterUser}}" type="text" class="validate">
-				          
+				          <input name="twitterUserName" pattern="(@{1})?[a-zA-Z0-9_]{1,15}" [(ngModel)]="userDataModel.twitterUser" #twitterUser="ngModel" required id="form-twitter-user" placeholder="{{twitterUser}}" type="text" class="validate">
+				          <div class="msn-place" *ngIf="twitterUser.errors &amp;&amp; (twitterUser.dirty || twitterUser.touched || formSubmitAttempt)">
+            <div style="color: white;"[hidden]="!twitterUser.hasError('required')">Debes completar este campo para continuar.</div>
+            <div style="color: white;"[hidden]="!twitterUser.hasError('pattern')">Usuario de twitter incorrecto</div>
+          </div>
 				        </div>
 				      </div>
 				      <div class="row">
 				      	<div class="input-field col s12">
 				      		<p>
 						      <label>
-						        <input name="tyc" [(ngModel)]="tyc" required type="checkbox" />
+						        <input name="tyc" [(ngModel)]="tyc" #tycc="ngModel" required type="checkbox" />
 						        <span>Acepto los términos y condiciones establecidos en los avisos legales: Politica de Privacidad y Politica de Tratamiento de datos.</span>
 						      </label>
-						    </p>				      		
+						    </p>
+						    <div class="msn-place" *ngIf="tycc.errors &amp;&amp; (tycc.dirty || tycc.touched || formSubmitAttempt)">
+            <div style="color: white;"[hidden]="!tycc.hasError('required')">Debes completar este campo para continuar.</div>
+            <div style="color: white;"[hidden]="!tycc.hasError('pattern')">Sole se admiten letras</div>
+          </div>				      		
 				      	</div>
 				      	<div class="col s12 center-align" style="margin-top: 2em;">
 									<!-- <a   class="waves-effect waves-light btn btn-slider" (click)="postForm()">Enviar</a> -->

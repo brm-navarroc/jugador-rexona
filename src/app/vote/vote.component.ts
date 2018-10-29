@@ -22,7 +22,7 @@ export class VoteComponent implements OnInit {
   weekPlayers(){
       this.request.get('getPlayersDb').subscribe((res)=>{
         this._semanalPlayers = res;
-        console.info(res);
+        //console.info(res);
           this.searchWeeklyPlayers();
        });
  	}
@@ -56,6 +56,12 @@ export class VoteComponent implements OnInit {
 
         return {'height': x+'%', 'top': t+"%" };
       }
+    }
+
+    tweetPopUp(playerHashTag){
+        
+        let noHash = playerHashTag.replace("#","")
+        let w=window.open("https://twitter.com/intent/tweet?button_hashtag="+noHash+"&ref_src=twsrc%5Etfw",'w','width=300,height=300');
     }
 
 }

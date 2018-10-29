@@ -14,24 +14,26 @@ declare var twitterFunctions: any;
 export class RegisterComponent implements OnInit {
   
   public loggedTwitterUser:any;
-  public twitterUser:any;
+  public twitterUser:any ;
+  public countries:any = ["El Salvador","Honduras","Nicaragua","Costa Rica","Panamá"];
   
 
 
   public tyc:any; 
   
 
+
   userDataModel ={
 
     names : "",
     lastNames : "",
-    country : null,
+    country : "",
     email : "",
     phone : "",
-    birthdate : "",
-    visa : null,
+    birthdate : "Ene 01, 2000",
+    visa : "",
     twitterUser : "",
-    tyc: null
+    tyc: ""
   }
 
   constructor(private request: RequestService) { }
@@ -50,7 +52,72 @@ export class RegisterComponent implements OnInit {
 
   $(document).ready(function(){
     
-    $('.datepicker').datepicker();
+    $('.datepicker')
+    .datepicker(
+    {
+      autoClose: true,
+      yearRange: 100,
+      maxYear:   2000,
+      minYear:   1900,
+      maxDate: new Date("Dec-31-2000"),
+      defaultDate: new Date("Jan-01-2000"),
+      i18n: {
+      months:    [
+                   'Enero',
+                   'Febrero',
+                   'Marzo',
+                   'Abril',
+                   'Mayo',
+                   'Junio',
+                   'Julio',
+                   'Agosto',
+                   'Septiembre',
+                   'Octubre',
+                   'Noviembre',
+                   'Diciembre'
+                  ],
+      monthsShort:['Ene',
+                   'Feb',
+                   'Mar',
+                   'Abr',
+                   'May',
+                   'Jun',
+                   'Jul',
+                   'Ago',
+                   'Sep',
+                   'Oct',
+                   'Nov',
+                   'Dic'
+                  ],
+      weekdays:   [
+                   'Domingo',
+                   'Lunes',
+                   'Martes',
+                   'Miércoles',
+                   'Jueves',
+                   'Viernes',
+                   'Sábado'
+                  ],
+      weekdaysShort:[
+                     'Dom',
+                     'Lun',
+                     'Mar',
+                     'Mié',
+                     'Jue',
+                     'Vie',
+                     'Sáb'],
+      weekdaysAbbrev: ['D',
+                       'L',
+                       'M',
+                       'M',
+                       'J',
+                       'V',
+                       'S'
+                       ],
+      cancel:         'Cancelar'
+    }
+    });
+
   });
 
   }
@@ -63,10 +130,13 @@ export class RegisterComponent implements OnInit {
      let res = twitterObj.init().then(function(resolveOutput) {
       console.log(resolveOutput)
       if(resolveOutput[0].loginState == "true"){
-        console.log("if")  
+        console.log(resolveOutput)  
        
         self.loggedTwitterUser = true;
+        
         self.twitterUser = "@"+resolveOutput[0].userName;
+
+        self.userDataModel.twitterUser = "@"+resolveOutput[0].userName;
         self.displaySelect();
         } 
   }, function(rejectOutput) {
@@ -95,23 +165,23 @@ export class RegisterComponent implements OnInit {
 
 
 
-    // this.request.post('webform_rest/submit',{
-    //   "webform_id": "registro",
-    //   "names": names,
-    //   "lastnames": lastNames,
-    //   "country": country,
-    //   "email": email,
-    //   "phone":phone,
-    //   "birthdate":birthdate,
-    //   "visa":visa,
-    //   "twitter_user":twitterUser
-    // }).subscribe((res)=>{
+     this.request.post('webform_rest/submit',{
+       "webform_id": "registro",
+       "names":this.userDataModel.names,
+       "lastnames":this.userDataModel.lastNames,
+       "country":this.userDataModel.country,
+       "email":this.userDataModel.email,
+       "phone":this.userDataModel.phone,
+       "birthdate":this.userDataModel.birthdate,
+       "visa":this.userDataModel.visa,
+       "twitter_user":this.userDataModel.twitterUser
+     }).subscribe((res)=>{
       
-    //    console.log(res,"post response")
-    //  });
+        console.log(res,"post response")
+     });
     
 
-    // console.log(names)
+    console.log(this.userDataModel)
     //   let formData = {
           
     //   }

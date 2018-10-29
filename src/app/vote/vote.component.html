@@ -34,8 +34,10 @@
 				 		<div class="col s4 center-align btn-pic" *ngFor="let player of _semanalPlayers" [class.undefinedPlayer]="player.votes == 0">
 				 			<p>{{player.hashtag}}</p>
 				 			<div class="col s12">
-				 				<a href=""><img [src]="player.image" alt="" class="circle responsive-img"><br>
+				 				<a (click)="tweetPopUp(player.hashtag)"><img [src]="player.image" alt="" class="circle responsive-img"><br>
 				 					<h5>Vota</h5></a>
+
+
 				 			</div>
 				 		</div>
 				 	</div>
